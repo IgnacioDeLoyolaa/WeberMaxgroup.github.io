@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxGroup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="icon" href="">
+    <style>
+        /* Offset básico para Scrollspy basado en la barra de navegación fija superior */
+        body {
+            position: relative; /* Requerido para Scrollspy */
+        }
+        /* Estilos personalizados */
+        #sectionHome { background-color: #14213D; color: white; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        #sectionWhyus { background-color: #f8f9fa; }
+        #therapeuticAreas { background-color: #14213D; color: white; }
+        #sectionDiscover { background-color: #e9ecef; }
+        #sectionCoreServices { background-color: #091A40; color: white; }
+        #sectionEsg { background-color: #f8f9fa; }
+        #footer { background-color: #091A40; color: white; }
+
+        .hero-content {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+        .section-padding {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .flecha-circulo-placeholder {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 46px;
+            color: white;
+            text-decoration: none;
+        }
+        .sticky-top-placeholder {
+            background-color: #091A40;
+            box-shadow: 0px 0px 20px 0px rgba(39, 181, 100, 0.36);
+            color: white;
+        }
+        .chart-placeholder {
+            height: 300px;
+            background-color: #2A3B5F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border: 1px dashed #444;
+            margin-bottom: 1rem;
+        }
+        .service-item-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente el contenido del flexbox */
+    justify-content: center; /* Centra verticalmente el contenido del flexbox si la caja tiene altura fija o suficiente padding */
+    text-align: center; /* Centra el texto */
+    min-height: 150px; /* Ejemplo: Dales una altura mínima para mejor alineación vertical */
+}
+
+	.service-item-box i { /* O .service-item-box .fa-stack si usas stacks */
+    font-size: 1.8rem; /* Ajusta el tamaño del icono */
+    margin-bottom: 0.75rem; /* Espacio entre icono y texto */
+}
+
+	.service-item-box h5 {
+    font-size: 0.9rem; /* Ajusta el tamaño del título si es necesario */
+    margin-top: 0.5rem;
+}
+        .esg-button-placeholder {
+            border: 2px solid #28a745;
+            color: #28a745;
+            background-color: white;
+        }
+        .esg-button-placeholder:hover {
+            background-color: #f8f9fa;
+        }
+        .custom-form-control::placeholder { /* Estilo para placeholders en tema oscuro */
+            color: #adb5bd;
+        }
+        .custom-form-control {
+            border-color: #495057; /* Borde más visible en fondo oscuro */
+        }
+        .custom-form-control:focus {
+            border-color: #28a745; /* Color success de Bootstrap */
+            box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+            background-color: #1e2b4a; /* Ligeramente diferente al hacer focus */
+            color: white;
+        }
+
+        /* Estilos para las secciones que aparecerán gradualmente */
+        .fade-in-section {
+            opacity: 0; /* Inicialmente invisible */
+            transform: translateY(40px); /* Ligeramente desplazado hacia abajo */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1; /* Totalmente visible */
+            transform: translateY(0); /* En su posición original */
+        }
+
+        /* Clases de retardo opcionales */
+        .delay-1 { transition-delay: 0.2s !important; } /* !important para asegurar que se aplique sobre la transición base */
+        .delay-2 { transition-delay: 0.4s !important; }
+        .delay-3 { transition-delay: 0.6s !important; }
+	
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar">
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(9, 26, 64, 0.8); backdrop-filter: blur(5px);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+				<img src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\LogoMaxGroup_FondoColor.png" alt="Logo Weber" height="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#sectionHome">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sectionWhyus">¿Que hacemos?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#therapeuticAreas">Nuestra Alianza</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sectionCoreServices">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="pageContent">
+
+  <section id="sectionHome" class="text-white hero-content">
+    <div class="container text-center">
+        <img width="152px" class="mb-4 fade-in-section" src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\LogoMaxGroup_FondoColor.png" alt="Logo Evidenze Blanco">
+        <h1 class="display-3 mb-4 fade-in-section delay-1">Impulsando la Transformación Sanitaria Global</h1>
+        <div class="row justify-content-center fade-in-section delay-2">
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <p class="fs-6">En Max Group, no solo imaginamos el futuro de la salud; lo construimos. Somos un ecosistema dinámico y unificado que amalgama el conocimiento más profundo, la tecnología de vanguardia y una pasión inquebrantable por el bienestar humano. Nuestro propósito es claro: catalizar una transformación sistémica en el sector de la salud, abordándola desde una perspectiva verdaderamente global y holística.</p>
+                        <h2 class="h4 mt-4 mb-3">Nuestra Visión y Compromiso:</h2>
+                        <ul class="list-unstyled text-start mx-auto" style="max-width: 600px;">
+                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> **Conocimiento en Acción:** Convertimos la investigación avanzada y la experiencia clínica en soluciones prácticas y efectivas.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> **Tecnología para el Bienestar:** Desarrollamos herramientas digitales y plataformas innovadoras que optimizan la atención y la gestión sanitaria.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> **Sanidad Justa y Humana:** Trabajamos incansablemente para garantizar que el acceso a una salud de calidad sea equitativo y centrado en el paciente.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> **Perspectiva Global:** Abordamos los desafíos sanitarios sin fronteras, buscando soluciones escalables y replicables a nivel mundial.</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2"></i> **Innovación Continua:** Nos mantenemos a la vanguardia, anticipando las necesidades futuras del sector y adaptándonos a un entorno en constante evolución.</li>
+                        </ul>
+                        <p class="fs-6 mt-4">Unimos mentes brillantes y recursos estratégicos para construir un futuro donde la salud sea más accesible, eficiente y empática para todos. En Max Group, cada paso que damos está impulsado por la convicción de que podemos y debemos hacer una diferencia tangible en la vida de las personas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 fade-in-section delay-3">
+            <a href="#sectionWhyus" class="flecha-circulo-placeholder">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+        <section id="sectionWhyus" class="py-5 section-padding fade-in-section">
+            <div class="container">
+			<div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0 fade-in-section">
+                        <h2 class="fw-bold display-5 mb-3">¿Que hacemos?</h2>
+                        <p class="fs-5"><br><p>Somos una nueva alianza global que transforma la industria farmacéutica y de tecnologías sanitarias a nivel global, liderada por Weber, motor de innovación, junto a sus aliados estratégicos.
+Juntos, ofrecemos soluciones integrales que potencian el acceso y el crecimiento del sector, combinando expertise, tecnología y visión global para impulsar el cambio y generar valor.</p>
+                    </div>
+                    <div class="col-lg-6 text-center fade-in-section delay-1">
+                        <img class="img-fluid" src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\section.png" alt="Ilustración Por Qué Nosotros">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="therapeuticAreas" class="py-5 section-padding fade-in-section">
+            <div class="container mt-5">
+        <h2 style="text-align:center">Nuestra alianza</h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 50px">
+                <div class="card">
+                    <img src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\AlianzaCanda.png" class="card-img-top" alt="Imagen de tarjeta 1">
+                    <div class="card-body">
+                        <h5 class="card-title">CANDA</h5>
+                        <p class="card-text" style="font-size: 12px">Contratos de compra pública innovadores, mejora del acceso al mercado y apoyo estratégico a startups para la comercialización y financiación de sus productos.</p>
+						<br>
+                        <a href="https://candahealthsolutions.com/" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 50px">
+                <div class="card">
+                    <img src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\AlianzaKeylates.png" class="card-img-top" alt="Imagen de tarjeta 2">
+                    <div class="card-body">
+                        <h5 class="card-title">KEYLATES</h5>
+                        <p class="card-text" style="font-size: 12px">Servicios integrales en acceso al mercado, asesoramiento estratégico y desarrollo de programas de valor añadido para  productos innovadores para la salud.</p>
+						<br>
+                        <a href="https://www.keylates.com/" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 50px">
+                <div class="card">
+                    <img src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\AlianzaFloat.png" class="card-img-top" alt="Imagen de tarjeta 3">
+                    <div class="card-body">
+                        <h5 class="card-title">FLOAT HEALTH</h5>
+                        <p class="card-text" style="font-size: 12px">Consultoría médica especializada, creación de contenido para campañas, publicidad y estrategias digitales para reimaginar la comunicación en salud a nivel global, integrando creatividad y tecnología.</p>
+						<br>
+                        <a href="https://float.pt/" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 50px">
+                <div class="card">
+                    <img src="C:\Users\Memory\Documents\Weber\Weber MaxGroup\Img\AlianzaAD.png" class="card-img-top" alt="Imagen de tarjeta 4">
+                    <div class="card-body">
+                        <h5 class="card-title">ALIANZA AD</h5>
+                        <p class="card-text" style="font-size:11px">Soluciones integrales en comunicación médica, publicidad, estrategias digitales, producción audiovisual y planificación estratégica, combinando innovación y tecnología para transformar la comunicación en salud.</p>
+						<br>
+                        <a href="https://www.adacosta.com.mx/" class="btn btn-primary">Ver más</a>						
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </section>
+
+        <section id="sectionDiscover" class="py-5 section-padding bg-light fade-in-section">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-8 mb-3 mb-md-0">
+                        <p class="fs-12">Nos proponemos convertirnos en el referente líder en consultoría en salud, con presencia en Europa, LATAM y EE.UU., focalizando nuestros esfuerzos en la evaluación de tecnologías sanitarias y en la cuantificación de su valor social y económico. Así, aceleramos su acceso al mercado y contribuimos a mejorar la calidad de vida de los pacientes y el bienestar de las sociedades en las que operamos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="sectionCoreServices" class="py-5 section-padding fade-in-section">
+            <div class="container">
+                <h2 class="text-center mb-2 display-5"><b>Servicios</b></h2>
+                <p class="fs-5 text-center mb-5"><b></b></p>
+
+                <div class="row g-3 d-none d-xl-flex justify-content-center">
+                    <div class="col-xl-2 fade-in-section"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail1"> <i class="fas fa-clipboard-check fa-2x mb-2"></i><h5>Registro y aprobación regulatoria</h5></div></div>
+                    <div class="col-xl-2 fade-in-section delay-1"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail2"><i class="fas fa-money-bill-wave fa-2x mb-2"></i><h5>Evaluación económica y HTA</h5></div></div>
+                    <div class="col-xl-2 fade-in-section delay-2"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail3"><i class="fas fa-right-to-bracket fa-2x mb-2"></i><h5>Acceso al mercado y pricing</h5></div></div>
+					<div class="col-xl-2 fade-in-section delay-3"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail4"><i class="fas fa-building fa-2x mb-2"></i><h5>Comercialización y propuesta de valor</h5></div></div>
+                    <div class="col-xl-2 fade-in-section delay-1"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail5"><i class="fas fa-comment-medical fa-2x mb-2"></i><h5>Comunicación médica y marketing digital</h5></div></div>
+                </div>
+				 <div class="row g-3 d-none d-xl-flex justify-content-center" >
+                     <div class="col-xl-2 fade-in-section delay-2"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail6"><i class="fas fa-database fa-2x mb-2"></i><h5>Big data, IA y soluciones digitales</h5></div></div>
+					 <div class="col-xl-2 fade-in-section"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail7"><i class="fas fa-file-contract fa-2x mb-2"></i><h5>Contracting and tendering</h5></div></div>
+                     <div class="col-xl-2 fade-in-section delay-1"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail8"><i class="fas fa-chalkboard-user fa-2x mb-2"></i><h5>Desarrollo de talento y equipos</h5></div></div>
+                     <div class="col-xl-2 fade-in-section delay-2"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail9"><i class="fas fa-people-arrows fa-2x mb-2"></i><h5>Public affairs y lobby</h5></div></div>
+				</div>
+                <div class="row g-3 d-none d-xl-flex justify-content-center">
+					<div class="col-xl-2 fade-in-section delay-3"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail10"> <i class="fas fa-pills fa-2x mb-2"></i><h5>Farmacovigilancia</h5></div></div>
+                    <div class="col-xl-2 fade-in-section delay-1"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail11"><i class="fas fa-truck fa-2x mb-2"></i><h5>Distribución y logística</h5></div></div>
+				</div>
+                </div>
+				 <div class="row g-3 d-none d-xl-flex justify-content-center"> 
+				 <div class="col-xl-2 fade-in-section"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail13"><i class="fa-solid fa-binoculars"></i><h5>Transformación organizacional y foresight</h5></div></div>
+				    </div>
+                <div class="row g-3 d-none d-xl-flex justify-content-center"> 
+					 <div class="col-xl-2 fade-in-section delay-2"><div class="service-item-box text-center" data-bs-toggle="collapse" data-bs-target="#serviceDetail12"><i class="fas fa-star fa-2x mb-2"></i><h5>Marketing con KOLs</h5></div></div>
+                </div>
+
+                <div id="coreServicesDetailsContainer" class="mt-4">
+                    <div class="collapse" id="serviceDetail1"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Registro y aprobación regulatoria...</div></div>
+                    <div class="collapse" id="serviceDetail2"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Evaluación económica y HTA...</div></div>
+                    <div class="collapse" id="serviceDetail3"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Acceso al mercado y pricing...</div></div>
+                    <div class="collapse" id="serviceDetail4"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Comercialización y propuesta de valor...</div></div>
+                    <div class="collapse" id="serviceDetail5"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Comunicación médica y marketing digital...</div></div>
+                    <div class="collapse" id="serviceDetail6"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Big data, IA y soluciones digitales...</div></div>
+                    <div class="collapse" id="serviceDetail7"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Contracting and tendering...</div></div>
+                    <div class="collapse" id="serviceDetail8"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Desarrollo de talento y equipos...</div></div>
+                    <div class="collapse" id="serviceDetail9"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Public affairs y lobby...</div></div>
+                    <div class="collapse" id="serviceDetail10"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Farmacovigilancia...</div></div>
+                    <div class="collapse" id="serviceDetail11"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Distribución y logística...</div></div>
+                    <div class="collapse" id="serviceDetail12"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Marketing con KOLs...</div></div>
+                    <div class="collapse" id="serviceDetail13"><div class="p-3" style="background-color: #1D4EBD;">Detalles para Transformación organizacional y foresight...</div></div>
+                </div>
+
+                <div class="accordion d-xl-none mt-4" id="coreServicesAccordionMobile">
+                    <div class="accordion-item bg-dark text-white border-light">
+                        <h2 class="accordion-header" id="headingMobileService1">
+                            <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMobileService1">
+                                <i class="fas fa-clipboard-check fa-fw"></i> Registro y aprobación regulatoria
+                            </button>
+                        </h2>
+                        <div id="collapseMobileService1" class="accordion-collapse collapse" data-bs-parent="#coreServicesAccordionMobile">
+                            <div class="accordion-body" style="background-color: #1D4EBD;">
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+        <!--<section id="sectionEsg" class="py-5 section-padding fade-in-section">
+            <div class="container">
+                <button type="button" class="btn btn-lg d-block w-100 p-4 rounded-3 esg-button-placeholder" data-bs-toggle="modal" data-bs-target="#esgModal">
+                    <div class="d-flex justify-content-between align-items-center flex-column flex-md-row text-center text-md-start">
+                        <span class="fs-4 text-dark">
+                            
+                        </span>
+                        <img class="mt-3 mt-md-0" width="38" src="https://evidenze.com/assets/front/landing/v2/img/icons/btn_mas.svg" alt="Más info">
+                    </div>
+                </button>
+            </div>
+        </section>-->
+
+        <!--<div class="modal fade" id="esgModal" tabindex="-1" aria-labelledby="esgModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="esgModalLabel">ESG Commitment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h2 class="fs-4 mb-4"><b>ESG Commitment is a Foundational Pillar...</b></h2>
+                        <h4 class="fs-5 fw-bold mb-3">ESG Overview</h4>
+                        <div class="row mb-4">
+                            <div class="col-md-7">
+                                <p>Evidenze is fully committed to integrating Environmental, Social, and Governance (ESG) principles...</p>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="row g-2">
+                                    <div class="col-4"><img class="img-fluid" src="https://evidenze.com/assets/front/landing/v2/img/esg/cert-1.png" alt="Certificación 1"></div>
+                                    <div class="col-4"><img class="img-fluid" src="https://evidenze.com/assets/front/landing/v2/img/esg/cert-2.png" alt="Certificación 2"></div>
+                                    <div class="col-4"><img class="img-fluid" src="https://evidenze.com/assets/front/landing/v2/img/esg/cert-3.png" alt="Certificación 3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="fs-5 fw-bold mb-4">Standard Programs and Initiatives</h4>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <img class="mb-3" src="https://evidenze.com/assets/front/landing/v2/img/icons/icon-environmental.png" alt="Icono Medioambiental" width="50">
+                                <h5 class="mb-3">Environmental</h5>
+                                <p class="small">Objective to decrease energy and paper consumption...</p>
+                            </div>
+                            <div class="col-md-4">
+                                <img class="mb-3" src="https://evidenze.com/assets/front/landing/v2/img/icons/icon-social.png" alt="Icono Social" width="50">
+                                <h5 class="mb-3">Social</h5>
+                                <p class="small">Developing and communicating new employee policies...</p>
+                            </div>
+                            <div class="col-md-4">
+                                <img class="mb-3" src="https://evidenze.com/assets/front/landing/v2/img/icons/icon-governance.png" alt="Icono Gobernanza" width="50">
+                                <h5 class="mb-3">Governance</h5>
+                                <p class="small">Established an internal whistleblower channel...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>-->
+	<footer id="footer" class="pt-5 section-padding fade-in-section">
+     <!--   <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+                    <p class="text-success text-uppercase small fw-bold">KNOWLEDGE IN HEALTH</p>
+                    <h2 class="display-5 my-4">The Full Value CRO</h2>
+                    <p class="fs-5 fw-light mt-4">Contact us directly:</p>
+                    <p><a href="mailto:clinical-research@evidenze.com" class="text-white text-decoration-none">clinical-research@evidenze.com</a></p>
+                    <p><a href="tel:+34914561105" class="text-white text-decoration-none">+34 91 456 11 05</a></p>
+                    <img class="img-fluid mt-4" src="https://evidenze.com/assets/front/landing/v2/img/logos/sello-iso.svg" alt="Sello ISO" style="width: 150px;">
+                </div>
+                <div class="col-lg-5 offset-lg-1 text-center text-lg-start">
+                    <p class="text-success small fw-bold">EVIDENZE CONNECT</p>
+                    <h2 class="display-5 mt-4">Let’s Talk</h2>
+                    <p class="fs-5 fw-light mt-4">Fill out the form and discover how we can help you generate value through knowledge and evidence.</p>
+                    <form id="contactFormFooter" class="mt-4 needs-validation" novalidate>
+                        <div class="mb-3">
+                            <input type="text" class="form-control bg-transparent text-white border-secondary custom-form-control" name="fullname" placeholder="Name and surname" required>
+                            <div class="invalid-feedback text-light">Por favor, introduce tu nombre.</div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control bg-transparent text-white border-secondary custom-form-control" name="email" placeholder="Mail" required>
+                            <div class="invalid-feedback text-light">Por favor, introduce un email válido.</div>
+                        </div>
+                        <div class="mb-3">
+                             <input type="text" class="form-control bg-transparent text-white border-secondary custom-form-control" name="position" placeholder="Position">
+                        </div>
+                         <div class="mb-3">
+                             <input type="text" class="form-control bg-transparent text-white border-secondary custom-form-control" name="country" placeholder="Country">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control bg-transparent text-white border-secondary custom-form-control" placeholder="Message" name="message" rows="4" required></textarea>
+                            <div class="invalid-feedback text-light">Por favor, introduce tu mensaje.</div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="footerPrivacyPolicy" name="privacy_policy" required>
+                            <label class="form-check-label small" for="footerPrivacyPolicy">I accept the Privacy Policy and Data Protection of Evidenze...</label>
+                            <div class="invalid-feedback text-light">Debes aceptar la política de privacidad.</div>
+                        </div>
+                        <div class="mb-3"></div>
+                        <button type="submit" class="btn btn-outline-success rounded-pill px-5 py-2 text-uppercase">SEND</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary">
+            <div class="row pb-4">
+                <div class="col-md-6 text-center text-md-start small mb-2 mb-md-0">
+                    <span id="copyYearFooter"></span> © Evidenze
+                </div>
+                <div class="col-md-6 text-center text-md-end small">
+                    <a href="#" class="text-white text-decoration-none mx-2">Legal warning</a>|
+                    <a href="#" class="text-white text-decoration-none mx-2">Privacy Policy</a>|
+                    <a href="#" class="text-white text-decoration-none mx-2">Quality policy</a>|
+                    <a href="#" class="text-white text-decoration-none mx-2">Ethics and Compliance</a>
+                </div>
+            </div>
+        </div>-->
+    </footer>
+
+    <div id="cookieConsentBanner" class="fixed-bottom p-3" style="background-color: rgba(37, 49, 80, 0.95); color: #ecf0f1; display:none;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-3 mb-lg-0 small">
+                    Utilizamos <b>cookies</b> 🍪 propias y de terceros con fines analíticos... Consulta la <a href="#" class="text-white fw-bold"><u>Política de Cookies</u></a>.
+                </div>
+                <div class="col-lg-4 d-flex justify-content-lg-end justify-content-center gap-2">
+                    <button id="rejectAllCookiesBtn" class="btn btn-outline-light btn-sm text-uppercase">Rechazar</button>
+                    <button id="configureCookiesBtn" class="btn btn-outline-light btn-sm text-uppercase" data-bs-toggle="modal" data-bs-target="#cookiesSettingsModal">Configurar</button>
+                    <button id="acceptAllCookiesBtn" class="btn btn-success btn-sm text-uppercase">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cookiesSettingsModal" tabindex="-1" aria-labelledby="cookiesSettingsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cookiesSettingsModalLabel">Configuración de Cookies</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="small">Las cookies utilizadas en este sitio están categorizadas...</p>
+            <div class="my-3">
+                <button class="btn btn-primary btn-sm me-2" id="allowAllPopupBtn">Permitir todas</button>
+                <button class="btn btn-secondary btn-sm" id="denyAllPopupBtn">Denegar todas</button>
+            </div>
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="cookiesNecessary" checked disabled>
+              <label class="form-check-label" for="cookiesNecessary"><b>Cookies Necesarias</b><br><small>Algunas cookies son necesarias...</small></label>
+            </div>
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="cookiesPreferences">
+              <label class="form-check-label" for="cookiesPreferences"><b>Preferencias</b><br><small>Las cookies de preferencias permiten...</small></label>
+            </div>
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="cookiesAnalytical">
+              <label class="form-check-label" for="cookiesAnalytical"><b>Cookies Analíticas</b><br><small>Las cookies analíticas nos ayudan...</small></label>
+            </div>
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="cookiesMarketing">
+              <label class="form-check-label" for="cookiesMarketing"><b>Cookies de Marketing</b><br><small>Las cookies de marketing se utilizan...</small></label>
+            </div>
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" role="switch" id="cookiesOther">
+              <label class="form-check-label" for="cookiesOther"><b>Otras cookies</b><br><small>Las cookies de esta categoría aún no han sido categorizadas...</small></label>
+            </div>
+            <hr>
+            <p class="small">Más información sobre nuestra <a href="#">Política de Cookies</a>.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="saveCookieSettingsBtn">Guardar Configuración</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const yearSpans = document.querySelectorAll(".copy-year, #copyYearFooter");
+            yearSpans.forEach(span => {
+                if (span) {
+                    span.textContent = new Date().getFullYear();
+                }
+            });
+
+            const navbar = document.getElementById('mainNavbar');
+            if (navbar) {
+                window.onscroll = function() {
+                    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                        navbar.style.paddingTop = "5px";
+                        navbar.style.paddingBottom = "5px";
+                        navbar.style.backgroundColor = "rgba(9, 26, 64, 0.95)";
+                    } else {
+                        navbar.style.paddingTop = "10px";
+                        navbar.style.paddingBottom = "10px";
+                         navbar.style.backgroundColor = "rgba(9, 26, 64, 0.8)";
+                    }
+                };
+            }
+            
+            function updateScrollPadding() {
+                const navbarHeight = document.getElementById('mainNavbar')?.offsetHeight || 70;
+                document.body.style.paddingTop = navbarHeight + 'px';
+            }
+            updateScrollPadding();
+            window.addEventListener('resize', updateScrollPadding);
+
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+
+            const cookieBanner = document.getElementById('cookieConsentBanner');
+            const acceptCookiesBtn = document.getElementById('acceptAllCookiesBtn');
+            const rejectCookiesBtn = document.getElementById('rejectAllCookiesBtn');
+            const saveCookieSettingsBtn = document.getElementById('saveCookieSettingsBtn');
+
+            if (localStorage.getItem('cookieConsent')) {
+                if(cookieBanner) cookieBanner.style.display = 'none';
+            } else {
+                 if(cookieBanner) cookieBanner.style.display = 'block';
+            }
+
+            if(acceptCookiesBtn) {
+                acceptCookiesBtn.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    if(cookieBanner) cookieBanner.style.display = 'none';
+                    console.log("Todas las cookies aceptadas.");
+                });
+            }
+
+            if(rejectCookiesBtn) {
+                 rejectCookiesBtn.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'rejected');
+                    if(cookieBanner) cookieBanner.style.display = 'none';
+                    console.log("Todas las cookies no esenciales rechazadas.");
+                });
+            }
+
+             if(saveCookieSettingsBtn) {
+                saveCookieSettingsBtn.addEventListener('click', function() {
+                    const preferences = document.getElementById('cookiesPreferences')?.checked;
+                    const analytical = document.getElementById('cookiesAnalytical')?.checked;
+                    const marketing = document.getElementById('cookiesMarketing')?.checked;
+                    const other = document.getElementById('cookiesOther')?.checked;
+                    localStorage.setItem('cookieConsent', 'configured');
+                    localStorage.setItem('cookiePreferences', preferences);
+                    localStorage.setItem('cookieAnalytical', analytical);
+                    localStorage.setItem('cookieMarketing', marketing);
+                    localStorage.setItem('cookieOther', other);
+                    if(cookieBanner) cookieBanner.style.display = 'none';
+                    var cookiesModalEl = document.getElementById('cookiesSettingsModal');
+                    if (cookiesModalEl) {
+                        var cookiesModal = bootstrap.Modal.getInstance(cookiesModalEl);
+                        if(cookiesModal) cookiesModal.hide();
+                    }
+                    console.log("Configuración de cookies guardada:", {preferences, analytical, marketing, other});
+                });
+            }
+            
+            const allowAllPopupBtn = document.getElementById('allowAllPopupBtn');
+            if(allowAllPopupBtn){
+                allowAllPopupBtn.addEventListener('click', function(){
+                    document.getElementById('cookiesPreferences').checked = true;
+                    document.getElementById('cookiesAnalytical').checked = true;
+                    document.getElementById('cookiesMarketing').checked = true;
+                    document.getElementById('cookiesOther').checked = true;
+                });
+            }
+            const denyAllPopupBtn = document.getElementById('denyAllPopupBtn');
+            if(denyAllPopupBtn){
+                denyAllPopupBtn.addEventListener('click', function(){
+                    document.getElementById('cookiesPreferences').checked = false;
+                    document.getElementById('cookiesAnalytical').checked = false;
+                    document.getElementById('cookiesMarketing').checked = false;
+                    document.getElementById('cookiesOther').checked = false;
+                });
+            }
+
+            // Lógica para el efecto fade-in al hacer scroll
+            const sectionsToFade = document.querySelectorAll('.fade-in-section');
+            if (sectionsToFade.length > 0) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.15 // Aparece cuando el 15% es visible
+                };
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+                const intersectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+                sectionsToFade.forEach(section => {
+                    intersectionObserver.observe(section);
+                });
+            }
+
+
+            // Placeholder para Interacción de Áreas Terapéuticas
+            const verticalChartContainer = document.getElementById('verticalChartContainer');
+            const currentAreaNameEl = document.getElementById('currentAreaName');
+            const statsDisplayEl = document.getElementById('statsDisplay');
+            const circularChartContainer = document.getElementById('circularChartContainer');
+            const exampleAreas = {
+                oncology: { name: "Oncology", stats: "82 Patrocinadores, 14,702 Pacientes...", projects: "Cáncer de mama 20%, Colorrectal 13%..." },
+                neurology: { name: "Neurology", stats: "20 Patrocinadores, 13,210 Pacientes...", projects: "Esclerosis Múltiple 38%, Alzheimer 14%..." },
+            };
+            if (verticalChartContainer) {
+                Object.keys(exampleAreas).forEach(key => {
+                    const areaButton = document.createElement('button');
+                    areaButton.className = 'btn btn-sm btn-outline-light d-block mb-2 w-100';
+                    areaButton.textContent = exampleAreas[key].name;
+                    areaButton.onclick = function() {
+                        if (currentAreaNameEl) currentAreaNameEl.textContent = exampleAreas[key].name;
+                        if (statsDisplayEl) statsDisplayEl.innerHTML = `<div class="col-12"><p class="small">${exampleAreas[key].stats}</p></div>`;
+                        if (circularChartContainer) circularChartContainer.innerHTML = `<p class="small p-2">${exampleAreas[key].projects}</p>`;
+                    };
+                    verticalChartContainer.appendChild(areaButton);
+                });
+                if (currentAreaNameEl) currentAreaNameEl.textContent = exampleAreas.oncology.name;
+                if (statsDisplayEl) statsDisplayEl.innerHTML = `<div class="col-12"><p class="small">${exampleAreas.oncology.stats}</p></div>`;
+                if (circularChartContainer) circularChartContainer.innerHTML = `<p class="small p-2">${exampleAreas.oncology.projects}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
